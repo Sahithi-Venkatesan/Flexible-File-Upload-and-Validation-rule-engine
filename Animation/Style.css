@@ -31,7 +31,7 @@ body {
 	margin-top: 20%;
 }
 .animation-area {
-	background: linear-gradient(275deg,#E5BDF6,#D8DEDE);
+	background: linear-gradient(to bottom, #ffffff, #929090f6);
 	width: 100%;
 	height: 100vh;
 }
