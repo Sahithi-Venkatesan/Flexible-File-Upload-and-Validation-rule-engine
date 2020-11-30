@@ -47,7 +47,7 @@ body {
 	position: absolute;
 	background-image: url("logo-dell.png");
 	list-style: none;
-	width: 78px;
+	width:78px;
 	height: 90px;
 	/*background: rgba(255, 255, 255, 0.2);*/
 	animation: animate 20s linear infinite;
