@@ -2,116 +2,97 @@
 <html>
 <head>
 	<title>Dell Input Fields</title>
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
 	<link rel="stylesheet" type="text/css" href="inputfield.css" />
-    <script src="inputfield.js"></script>
-
-    <!--sample file upload, can update later-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+    var x = 0; 
+    var max_fields = 10; 
+    $('.list_add_button').click(function(){
+    if(x < max_fields){ 
+        x++; 
+        var input_field = '<div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Column name" class="form-control"/></div></div><div class="col-xs-4col-sm-4 col-md-4"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Data type" class="form-control"/></div></div><div class="col-xs-3 col-sm-3 col-md-3"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Length" class="form-control"/></div></div><div class="col-xs-1 col-sm-7 col-md-1"><a href="javascript:void(0);" class="list_remove_button btn btn-danger">- </a></div></div>';  
+        $('.list_wrapper').append(input_field); }
+    });    
+    $('.list_wrapper').on('click', '.list_remove_button', function(){
+       $(this).closest('div.row').remove(); 
+       x--; 
+    });
+});
+</script>
+  <!--sample file upload, can update later-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-
 <body>
-
     <div class="navbar">
-  
         <h2> </h2>
-  
     </div>
-  
     <hr>
-  
     <div class="container">
-  
     <h2>File Upload</h2>
-  
     <div class="card" style="width:400px">
-  
       <div class="card-body ">
-  
         <form action="/upload" method="post" enctype="multipart/form-data">
-  
         <p class="card-text">Choose a file to upload</p>
-  
           <input type="file" name="file" value="file">
-  
           <hr>
-  
         <input type="submit" name="upload" value="Upload" class="btn btn-success">
-  
         </form>
-  
       </div>
-  
     </div>
-  
     <br>
-  
   </div>
   <!--sample file upload ends-->
-  
-    <div class="container">
-        <div class="row centered-form">
-            <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
-                <div class="panel panel-info">
-
-                    <div class="panel-heading text-center">
-                   
-                        <h1 class="panel-title">Please add validation attributes</h1>
-                    </div>
-
-                    <div class="panel-body">
-                        <form role="form" method="post" action="">
-                            
+  <div class="container">
+    <div class="row centered-form">
+    
+            <div class="panel panel-info">
+                <div class="panel-heading text-center">
+                    <h1 class="panel-title">Please add validation attributes</h1>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="post" action="">
                             <div class="list_wrapper">  
                                 <div class="row">
-
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <div class="form-group">
-                                            
+                                        <div class="form-group">  
                                             <input name="list[0][]" type="text" placeholder="Column name" class="form-control"/>                                      
                                         </div>
                                     </div>
-
                                     <div class="col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group">
-                                            
                                             <input name="list[0][]" type="text" placeholder="Data type" class="form-control"/>
                                         </div>
                                     </div> 
-                                    <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <div class="form-group">
-                                            
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <div class="form-group"> 
                                             <input name="list[0][]" type="text" placeholder="Length" class="form-control"/>
                                         </div>
                                     </div> 
-
                                     <div class="col-xs-1 col-sm-1 col-md-1">
-                                        <br>
-                                       <button class="btn btn-primary list_add_button" type="button">Add</button>
-                                    </div>
+                                        <div class="form-group">
+                                       <button class="btn btn-primary list_add_button" type="button">+</button>
+                                       </div>
+                                    </div>  
                                 </div>
-                            </div>
-                            
+                            </div>               
                            <hr>
                             <button class="btn btn-success" type="button">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        
     </div>
 </body>
 </html>
