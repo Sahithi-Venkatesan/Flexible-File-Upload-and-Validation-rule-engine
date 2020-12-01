@@ -5,7 +5,7 @@
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
-	<link rel="stylesheet" type="text/css" href="inputfield.css" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/inputfield.css') }}" />
     <script>
         $(document).ready(function(){
     var x = 0; 
@@ -61,33 +61,36 @@
                     <h1 class="panel-title">Please add validation attributes</h1>
                 </div>
                 <div class="panel-body">
+                    {% if message %}
+                        <p>{{ message }}</p>
+                    {% endif %}
                     <form role="form" method="post" action="">
                             <div class="list_wrapper">  
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group">  
-                                            <input name="list[0][]" type="text" placeholder="Column name" class="form-control"/>                                      
+                                            <input name="l1" type="text" placeholder="Column name" class="form-control"/>                                      
                                         </div>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group">
-                                            <input name="list[0][]" type="text" placeholder="Data type" class="form-control"/>
+                                            <input name="l2" type="text" placeholder="Data type" class="form-control"/>
                                         </div>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
                                         <div class="form-group"> 
-                                            <input name="list[0][]" type="text" placeholder="Length" class="form-control"/>
+                                            <input name="l3" type="text" placeholder="Length" class="form-control"/>
                                         </div>
                                     </div> 
                                     <div class="col-xs-1 col-sm-1 col-md-1">
                                         <div class="form-group">
-                                       <button class="btn btn-primary list_add_button" type="button">+</button>
+                                       <button class="btn btn-primary list_add_button" type="submit">+</button>
                                        </div>
                                     </div>  
                                 </div>
                             </div>               
                            <hr>
-                            <button class="btn btn-success" type="button">Submit</button>
+                            <button class="btn btn-success" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
