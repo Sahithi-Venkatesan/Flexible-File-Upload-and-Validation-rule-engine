@@ -45,7 +45,7 @@
       <div class="card-body ">
         <form action="/upload" method="post" enctype="multipart/form-data">
         <p class="card-text">Choose a file to upload</p>
-          <input type="file" name="file" value="file">
+          <input type="file" name="file" value="file" accept="">
           <hr>
         <input type="submit" name="upload" value="Upload" class="btn btn-success">
         </form>
@@ -65,6 +65,31 @@
                     {% if message %}
                         <p>{{ message }}</p>
                     {% endif %}
+                    {% for i in range(3) %}
+                    <div class="list_wrapper">  
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="form-group">  
+                                    <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                </div>
+                            </div> 
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <div class="form-group"> 
+                                    <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>               
+                   <hr>
+                    {% endfor %}
+                    <hr>
+                            <button class="btn btn-success" type="submit">Submit</button>
+                    <!--
                     <form role="form" method="post" action="">
                             <div class="list_wrapper">  
                                 <div class="row">
@@ -93,10 +118,25 @@
                            <hr>
                             <button class="btn btn-success" type="submit">Submit</button>
                         </form>
+                    -->
+                        </div>
                     </div>
                 </div>
             </div>
         
     </div>
 </body>
+<script>
+    $(document).ready(function() {
+    $("#dropdownMenuButton").change(function() {
+        var selVal = $(this).val();
+        $("#textboxDiv").html('');
+        if(selVal > 0) {
+            for(var i = 1; i<= selVal; i++) {
+                $("#textboxDiv").append('<input type="text" name="textVal[]" value="" />');
+            }
+        }
+    });
+});
+</script>
 </html>
