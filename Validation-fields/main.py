@@ -38,40 +38,34 @@ def upload_file():
 '''            
 
 @app.route('/', methods=['post', 'get'])
+
 def login():
     message = ''
     if request.method == 'POST':
-        l1 = request.form.get('l1')  # access the data inside 
+        n0 = request.form.get('n0')  # access the data inside 
+        n1 = request.form.get('n1')
+        n2 = request.form.get('n2')
+        d0 = request.form.get('d0')  # access the data inside 
+        d1 = request.form.get('d1')
+        d2 = request.form.get('d2')
+        l0 = request.form.get('l0')  # access the data inside 
+        l1 = request.form.get('l1')
         l2 = request.form.get('l2')
-        l3 = request.form.get('l3')
-
-        x = {
-            "col_name": l1,
-            "dtype": l2,
-            "length": l3
-            }
-
-        print(x)
 
         schema = Schema([
-        Column('l1', [LeadingWhitespaceValidation(), TrailingWhitespaceValidation()])
+        Column('n1', [LeadingWhitespaceValidation(), TrailingWhitespaceValidation()])
         ])
 
-        test_data = pd.read_csv('data.csv')
+        test_data = pd.read_csv('data.csv',header=None,error_bad_lines=False)
         #test_data = pd.read_csv(file.filename)--> rename to consider the file that is being uploaded
 
         errors = schema.validate(test_data)
 
         for error in errors:
             print(error)
+
     return render_template('inputfield.html', message=message)
 
-'''
-        if (l1 == 'sahithi' and l2 == 'int' and l3 == '7'):
-            message = l2
-        else:
-            message = l2
-'''
     
 
 if __name__ == "__main__":   
