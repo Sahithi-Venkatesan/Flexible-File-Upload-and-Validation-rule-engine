@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dell-Hack2Hire</title>
+    <link rel = "icon" href ="{{ url_for('static', filename='stylesheets/logo-dell.png') }}"  type = "image/x-icon">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/inputfield.css') }}" />
+    <script>
+        $(document).ready(function(){
+    var x = 0; 
+    var max_fields = 10; 
+    $('.list_add_button').click(function(){
+    if(x < max_fields){ 
+        x++; 
+        var input_field = '<div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Column name" class="form-control"/></div></div><div class="col-xs-4col-sm-4 col-md-4"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Data type" class="form-control"/></div></div><div class="col-xs-3 col-sm-3 col-md-3"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Length" class="form-control"/></div></div><div class="col-xs-1 col-sm-7 col-md-1"><a href="javascript:void(0);" class="list_remove_button btn btn-danger">- </a></div></div>';  
+        $('.list_wrapper').append(input_field); }
+    });    
+    $('.list_wrapper').on('click', '.list_remove_button', function(){
+       $(this).closest('div.row').remove(); 
+       x--; 
+    });
+});
+</script>
+  
+</head>
+<body>
+   
+  <div class="container">
+    <div class="row centered-form">
+    
+            <div class="panel panel-info">
+                <div class="panel-heading text-center">
+                    <h1 class="panel-title">Please add validation attributes</h1>
+                </div>
+                <div class="panel-body">
+                    {% if message %}
+                        <p>{{ message }}</p>
+                    {% endif %}
+                    {% for i in range(3) %}
+                    <form role="form" method="post" action="">
+                    <div class="list_wrapper">  
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="form-group">  
+                                    <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                    <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                </div>
+                            </div> 
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <div class="form-group"> 
+                                    <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>               
+                   <hr>
+                    {% endfor %}
+                    <hr>
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    </form>
+                    <!--
+                    <form role="form" method="post" action="">
+                            <div class="list_wrapper">  
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">  
+                                            <input name="l1" type="text" placeholder="Column name" class="form-control"/>                                      
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">
+                                            <input name="l2" type="text" placeholder="Data type" class="form-control"/>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <div class="form-group"> 
+                                            <input name="l3" type="text" placeholder="Length" class="form-control"/>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-1 col-sm-1 col-md-1">
+                                        <div class="form-group">
+                                       <button class="btn btn-primary list_add_button" type="button">+</button>
+                                       </div>
+                                    </div>  
+                                </div>
+                            </div>               
+                           <hr>
+                            <button class="btn btn-success" type="submit">Submit</button>
+                        </form>
+                    -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+    $("#dropdownMenuButton").change(function() {
+        var selVal = $(this).val();
+        $("#textboxDiv").html('');
+        if(selVal > 0) {
+            for(var i = 1; i<= selVal; i++) {
+                $("#textboxDiv").append('<input type="text" name="textVal[]" value="" />');
+            }
+        }
+    });
+});
+</script>
+</html>
