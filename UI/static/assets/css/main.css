@@ -496,7 +496,7 @@ input {
 }
 
 .card-3 .card-heading {
-  background: url("../img/logo-dell.png") top left/cover no-repeat;
+  background: url("../img/logo-dell.png");
   display: table-cell;
   width: 50%;
 }
