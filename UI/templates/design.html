@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>Dell-Hack2Hire</title>
-    <link rel = "icon" href ="{{ url_for('static', filename='stylesheets/logo-dell.png') }}"  type = "image/x-icon">
+    
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/inputfield.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/inputfield.css')}}" />
     <script>
         $(document).ready(function(){
     var x = 0; 
@@ -62,7 +62,7 @@
                    <hr>
                     {% endfor %}
                     <hr>
-                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success" type="submit"><a href="{{url_for('upload_func')}}">Submit</a></button>
                     </form>
                     <!--
                     <form role="form" method="post" action="">
