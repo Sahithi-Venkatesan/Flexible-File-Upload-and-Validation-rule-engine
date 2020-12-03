@@ -482,7 +482,7 @@ section {
   text-align: center;
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
-  background: #444444;
+  background: #fff;
 }
 
 .services .icon-box .icon {
@@ -1001,7 +1001,7 @@ section {
 #footer {
   color: #fff;
   font-size: 14px;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(33, 255, 255, 0.31) 100%), url("../img/") center center no-repeat;
+  background: linear-gradient(45deg, #fff 0%, rgba(13, 14, 14, 0.31) 100%);
   background-size: cover;
 }
 
@@ -1112,7 +1112,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: rgba(123, 39, 216, 0.8);
+  background:#fff;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 5px 5px 0;
@@ -1120,11 +1120,11 @@ section {
 }
 
 #footer .footer-newsletter form input[type="submit"]:hover {
-  background: #5846f9;
+  background: #ffffff;
 }
 
 #footer .copyright-wrap {
-  border-top: 1px solid #8577fb;
+  border-top: 1px solid #ffffff;
 }
 
 #footer .credits {
