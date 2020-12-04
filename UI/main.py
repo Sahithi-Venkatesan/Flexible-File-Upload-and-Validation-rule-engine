@@ -1,19 +1,16 @@
 '''
 from flask import Flask, render_template, request, flash
 import json
-
 app = Flask(__name__)
 @app.route('/')  
 def home():
     return render_template("index.html")
-
 @app.route('/login_1', methods=['GET', 'POST'])
 def login_func():
     if request.method == 'POST':
         return redirect(url_for('index'))
     return render_template('login_1.html')
     
-
 if __name__ == "__main__":   
     app.run(debug=True)
 '''
@@ -27,6 +24,8 @@ import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+app.secret_key = "secret key"
+
 @app.route('/')  
 def home():
     return render_template("index.html")
@@ -44,9 +43,42 @@ def upload_func():
     return render_template('upload.html')
 
 
+
+Ext_check = set(['csv', 'txt'])
+
+def file_check(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in Ext_check
+	
+'''
+@app.route('/design', methods=['POST'])
+def upload_file():
+	if request.method == 'POST':
+       
+		file = request.files['file']
+		if file.filename == '':
+			flash('Please select a file')
+			return render_template('design.html')
+		if file and file_check(file.filename):
+			filename = secure_filename(file.filename)
+			#file.save(file.filename)  # stores file in main folder
+            file.save(os.path.join('templates', filename))
+			flash('File successfully uploaded')
+			return render_template('design.html')
+		else:
+			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+			return render_template('design.html')
+
 @app.route('/design', methods=['post', 'get'])
-def login():
-    message = ''
+def retrieve():
+    if request.method == 'POST':
+        s = request.form.get('s')
+        print(s)
+        return redirect(url_for('login'))
+    return render_template('design.html')
+'''
+
+@app.route('/design', methods=['post', 'get'])
+def validate():
     if request.method == 'POST':
         n0 = request.form.get('n0')  # access the data inside 
         n1 = request.form.get('n1')
@@ -101,28 +133,24 @@ def login():
         Column(n2, [c2])
         ])
 
+        x = {n0,n1,n2}
+        print(x)
         #test_data = pd.read_csv('data.csv',header=None,error_bad_lines=False)
-        #test_data = pd.read_csv(StringIO(Name))
+        #test_data = pd.read_csv('data.csv')
+        
         test_data = pd.read_csv(StringIO('''Name,Age,Sex
-Gerald,82,Male
-Yuuwa,27,Female
-Edyta,50,ma'''))
-        #test_data = pd.read_csv(file.filename)--> rename to consider the file that is being uploaded
-
+        Gerald,82,Male
+        Yuuwa,27,Female
+        Edyta,50,ma'''))
+        #test_data = pd.read_csv('data.csv') #--> rename to consider the file that is being uploaded
         errors = schema.validate(test_data)
 
         for error in errors:
             print(error)
-        return redirect(url_for('login'))
-    return render_template('design.html', message=message)
-
+        return redirect(url_for('validate'))
+    return render_template('design.html')
 
 if __name__ == "__main__":   
     app.run(debug=True)
 
 
-
-
-
-
-    

@@ -19,7 +19,10 @@ body {
 
 
 .centered-form{
-    margin-top: 50px;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	align-items: center;
 }
 
 

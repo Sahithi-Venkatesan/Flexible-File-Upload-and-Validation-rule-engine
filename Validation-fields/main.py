@@ -97,10 +97,7 @@ def login():
 
         #test_data = pd.read_csv('data.csv',header=None,error_bad_lines=False)
         #test_data = pd.read_csv(StringIO(Name))
-        test_data = pd.read_csv(StringIO('''Name,Age,Sex
-Gerald,82,Male
-Yuuwa,27,Female
-Edyta,50,ma'''))
+        test_data = pd.read_csv('data.csv')
         #test_data = pd.read_csv(file.filename)--> rename to consider the file that is being uploaded
 
         errors = schema.validate(test_data)
@@ -108,9 +105,8 @@ Edyta,50,ma'''))
         for error in errors:
             print(error)
 
-    return render_template('inputfield.html', message=message)
+    return render_template('design.html', message=message)
 
     
-
 if __name__ == "__main__":   
     app.run(debug=True)

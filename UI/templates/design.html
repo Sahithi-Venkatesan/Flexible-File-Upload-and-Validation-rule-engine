@@ -23,10 +23,10 @@
     });
 });
 </script>
-  
+
 </head>
 <body>
-   
+    
   <div class="container">
     <div class="row centered-form">
     
@@ -35,9 +35,16 @@
                     <h1 class="panel-title">Please add validation attributes</h1>
                 </div>
                 <div class="panel-body">
-                    {% if message %}
-                        <p>{{ message }}</p>
-                    {% endif %}
+                    <form role="form" method="post" action="">
+                    
+                    <!--<a style="text-decoration: solid; color: #444444;" href="{{url_for('validate')}}">Take</a><br><br>
+                    <form action="/button" method="get">
+                        <input name="textfield" type="text" placeholder="Column name" class="form-control"/>
+                        <button type="button" id="connect" onclick="connectOnClick()"
+                    class="btn btn-outline-primary btn-block">Connect</button>
+
+                    
+                    </form>-->
                     {% for i in range(3) %}
                     <form role="form" method="post" action="">
                     <div class="list_wrapper">  
@@ -60,10 +67,12 @@
                         </div>
                     </div>               
                    <hr>
-                    {% endfor %}
+                   {% endfor %}
                     <hr>
-                    <button class="btn btn-success" type="submit"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">Submit</a></button>
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">Next</a></button>
                     </form>
+                </form>
                         </div>
                     </div>
                 </div>
@@ -72,16 +81,16 @@
     </div>
 </body>
 <script>
-    $(document).ready(function() {
-    $("#dropdownMenuButton").change(function() {
-        var selVal = $(this).val();
-        $("#textboxDiv").html('');
-        if(selVal > 0) {
-            for(var i = 1; i<= selVal; i++) {
-                $("#textboxDiv").append('<input type="text" name="textVal[]" value="" />');
-            }
-        }
-    });
-});
+    /*
+connectOnClick = () => {
+        $.post('/connect');
+    }
+    */
+    function myFunc() {
+            alert("Your message has been sent!");
+            document.getElementById("email").value;
+            document.getElementById("text").value;
+                    }
 </script>
+
 </html>
