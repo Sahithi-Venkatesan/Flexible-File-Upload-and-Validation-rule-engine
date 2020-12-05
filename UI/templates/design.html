@@ -33,31 +33,31 @@
                                     <div class="col-xs-4 col-sm-4 col-md-4">
                                         <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
                                             <option value="">Select col number</option>
-                                            <option value="n{{i}}">1</option>
-                                            <option value="n{{i}}">2</option>
-                                            <option value="n{{i}}">3</option>
-                                            <option value="n{{i}}">4</option>
-                                            <option value="n{{i}}">5</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
                                         </select>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4">
                                         <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
                                             <option value="">Select data type</option>
-                                            <option value="d{{i}}">String</option>
-                                            <option value="d{{i}}">Numeric</option>
-                                            <option value="d{{i}}">Alphanumeric</option>
-                                            <option value="d{{i}}">Date</option>
-                                            <option value="d{{i}}">Time</option>
+                                            <option value="String">String</option>
+                                            <option value="Numeric">Numeric</option>
+                                            <option value="Alphanumeric">Alphanumeric</option>
+                                            <option value="Date">Date</option>
+                                            <option value="Time">Time</option>
                                         </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
                                         <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
                                             <option value="">Select template</option>
-                                            <option value="t{{i}}">Age</option>
-                                            <option value="t{{i}}">Gender</option>
-                                            <option value="t{{i}}">Phone number</option>
-                                            <option value="t{{i}}">E-mail</option>
-                                            <option value="t{{i}}">Name</option>
+                                            <option value="Age">Age</option>
+                                            <option value="Gender">Gender</option>
+                                            <option value="Phone number">Phone number</option>
+                                            <option value="E-mail">E-mail</option>
+                                            <option value="Name">Name</option>
                                         </select>
                                     </div> 
                                 </div>
@@ -217,7 +217,12 @@
                     {% endfor %}
                    {% endif %}                                           
                     </div>       
-                    <button class="btn btn-success">Submit</button>
+                    <input style="border-radius: 25px;
+                            background: #323435;
+                            color: #d4e6e9;
+                            padding: 7px;
+                            width: 150px;
+                            height: 40px;" type="submit" value="Submit">
                     <button class="btn btn-success"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">Next</a></button>
                 </form>
                         </div>
