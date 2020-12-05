@@ -78,6 +78,18 @@ def retrieve():
 @app.route('/design', methods=['post', 'get'])
 def design():
     if request.method == 'POST':
+        if request.form.get('datatype') == 'String':
+            a=request.form.get('datatype')
+            print(a)
+            return render_template("design.html")
+        if request.form.get('colnum') == '1':
+            a=request.form.get('colnum')
+            print(a)
+            return render_template("design.html")
+        if request.form.get('template') == 'Age':
+            a=request.form.get('template')
+            print(a)
+            return render_template("design.html")
         if request.form.get('columns') == '1':
             a=request.form.get('columns')
             values=2
