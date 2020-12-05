@@ -12,7 +12,7 @@
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="{{ url_for('design') }}">
-                        <select name="columns" style="width:250px; position: relative; margin-left: 150px;border:azure: none;">
+                        <select name="columns" style="width:250px; position: relative; margin-left: 150px;border:azure: none:">
                             <option value="">Select the Number of columns</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -31,19 +31,34 @@
                             <div class="list_wrapper">  
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <div class="form-group">  
-                                            <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
-                                        </div>
+                                        <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                            <option value="">Select col number</option>
+                                            <option value="n{{i}}">1</option>
+                                            <option value="n{{i}}">2</option>
+                                            <option value="n{{i}}">3</option>
+                                            <option value="n{{i}}">4</option>
+                                            <option value="n{{i}}">5</option>
+                                        </select>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <div class="form-group">
-                                            <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
-                                        </div>
+                                        <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                            <option value="">Select data type</option>
+                                            <option value="d{{i}}">String</option>
+                                            <option value="d{{i}}">Numeric</option>
+                                            <option value="d{{i}}">Alphanumeric</option>
+                                            <option value="d{{i}}">Date</option>
+                                            <option value="d{{i}}">Time</option>
+                                        </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <div class="form-group"> 
-                                            <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
-                                        </div>
+                                        <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                            <option value="">Select template</option>
+                                            <option value="t{{i}}">Age</option>
+                                            <option value="t{{i}}">Gender</option>
+                                            <option value="t{{i}}">Phone number</option>
+                                            <option value="t{{i}}">E-mail</option>
+                                            <option value="t{{i}}">Name</option>
+                                        </select>
                                     </div> 
                                 </div>
                             </div> 
@@ -54,19 +69,34 @@
                             <div class="list_wrapper">  
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <div class="form-group">  
-                                            <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
-                                        </div>
+                                        <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                            <option value="">Select col number</option>
+                                            <option value="n{{i}}">1</option>
+                                            <option value="n{{i}}">2</option>
+                                            <option value="n{{i}}">3</option>
+                                            <option value="n{{i}}">4</option>
+                                            <option value="n{{i}}">5</option>
+                                        </select>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <div class="form-group">
-                                            <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
-                                        </div>
+                                        <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                            <option value="">Select data type</option>
+                                            <option value="d{{i}}">String</option>
+                                            <option value="d{{i}}">Numeric</option>
+                                            <option value="d{{i}}">Alphanumeric</option>
+                                            <option value="d{{i}}">Date</option>
+                                            <option value="d{{i}}">Time</option>
+                                        </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <div class="form-group"> 
-                                            <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
-                                        </div>
+                                        <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                            <option value="">Select template</option>
+                                            <option value="t{{i}}">Age</option>
+                                            <option value="t{{i}}">Gender</option>
+                                            <option value="t{{i}}">Phone number</option>
+                                            <option value="t{{i}}">E-mail</option>
+                                            <option value="t{{i}}">Name</option>
+                                        </select>
                                     </div> 
                                 </div>
                             </div> 
@@ -77,19 +107,34 @@
                         <div class="list_wrapper">  
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group">  
-                                        <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
-                                    </div>
+                                    <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select col number</option>
+                                        <option value="n{{i}}">1</option>
+                                        <option value="n{{i}}">2</option>
+                                        <option value="n{{i}}">3</option>
+                                        <option value="n{{i}}">4</option>
+                                        <option value="n{{i}}">5</option>
+                                    </select>
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group">
-                                        <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
-                                    </div>
+                                    <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select data type</option>
+                                        <option value="d{{i}}">String</option>
+                                        <option value="d{{i}}">Numeric</option>
+                                        <option value="d{{i}}">Alphanumeric</option>
+                                        <option value="d{{i}}">Date</option>
+                                        <option value="d{{i}}">Time</option>
+                                    </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <div class="form-group"> 
-                                        <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
-                                    </div>
+                                    <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select template</option>
+                                        <option value="t{{i}}">Age</option>
+                                        <option value="t{{i}}">Gender</option>
+                                        <option value="t{{i}}">Phone number</option>
+                                        <option value="t{{i}}">E-mail</option>
+                                        <option value="t{{i}}">Name</option>
+                                    </select>
                                 </div> 
                             </div>
                         </div> 
@@ -100,19 +145,34 @@
                         <div class="list_wrapper">  
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group">  
-                                        <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
-                                    </div>
+                                    <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select col number</option>
+                                        <option value="n{{i}}">1</option>
+                                        <option value="n{{i}}">2</option>
+                                        <option value="n{{i}}">3</option>
+                                        <option value="n{{i}}">4</option>
+                                        <option value="n{{i}}">5</option>
+                                    </select>
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group">
-                                        <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
-                                    </div>
+                                    <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select data type</option>
+                                        <option value="d{{i}}">String</option>
+                                        <option value="d{{i}}">Numeric</option>
+                                        <option value="d{{i}}">Alphanumeric</option>
+                                        <option value="d{{i}}">Date</option>
+                                        <option value="d{{i}}">Time</option>
+                                    </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <div class="form-group"> 
-                                        <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
-                                    </div>
+                                    <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select template</option>
+                                        <option value="t{{i}}">Age</option>
+                                        <option value="t{{i}}">Gender</option>
+                                        <option value="t{{i}}">Phone number</option>
+                                        <option value="t{{i}}">E-mail</option>
+                                        <option value="t{{i}}">Name</option>
+                                    </select>
                                 </div> 
                             </div>
                         </div> 
@@ -123,26 +183,41 @@
                         <div class="list_wrapper">  
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group">  
-                                        <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
-                                    </div>
+                                    <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select col number</option>
+                                        <option value="n{{i}}">1</option>
+                                        <option value="n{{i}}">2</option>
+                                        <option value="n{{i}}">3</option>
+                                        <option value="n{{i}}">4</option>
+                                        <option value="n{{i}}">5</option>
+                                    </select>
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group">
-                                        <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
-                                    </div>
+                                    <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select data type</option>
+                                        <option value="d{{i}}">String</option>
+                                        <option value="d{{i}}">Numeric</option>
+                                        <option value="d{{i}}">Alphanumeric</option>
+                                        <option value="d{{i}}">Date</option>
+                                        <option value="d{{i}}">Time</option>
+                                    </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <div class="form-group"> 
-                                        <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
-                                    </div>
+                                    <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <option value="">Select template</option>
+                                        <option value="t{{i}}">Age</option>
+                                        <option value="t{{i}}">Gender</option>
+                                        <option value="t{{i}}">Phone number</option>
+                                        <option value="t{{i}}">E-mail</option>
+                                        <option value="t{{i}}">Name</option>
+                                    </select>
                                 </div> 
                             </div>
                         </div> 
                     {% endfor %}
                    {% endif %}                                           
                     </div>       
-                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success">Submit</button>
                     <button class="btn btn-success"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">Next</a></button>
                 </form>
                         </div>
