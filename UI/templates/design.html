@@ -2,76 +2,148 @@
 <html>
 <head>
     <title>Dell-Hack2Hire</title>
-    
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/inputfield.css')}}" />
-    <script>
-        $(document).ready(function(){
-    var x = 0; 
-    var max_fields = 10; 
-    $('.list_add_button').click(function(){
-    if(x < max_fields){ 
-        x++; 
-        var input_field = '<div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Column name" class="form-control"/></div></div><div class="col-xs-4col-sm-4 col-md-4"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Data type" class="form-control"/></div></div><div class="col-xs-3 col-sm-3 col-md-3"><div class="form-group"><input name="list['+x+'][]" type="text" placeholder="Length" class="form-control"/></div></div><div class="col-xs-1 col-sm-7 col-md-1"><a href="javascript:void(0);" class="list_remove_button btn btn-danger">- </a></div></div>';  
-        $('.list_wrapper').append(input_field); }
-    });    
-    $('.list_wrapper').on('click', '.list_remove_button', function(){
-       $(this).closest('div.row').remove(); 
-       x--; 
-    });
-});
-</script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
 </head>
-<body>
-    
-  <div class="container">
-    <div class="row centered-form">
-    
-            <div class="panel panel-info">
+<body style="background: linear-gradient(75deg,#ecc7c7,rgb(247, 146, 146),#ffe079,#99eeff,rgb(233, 172, 255),#48cfe7); background-size: 300% 300%;animation: gradient 5s ease infinite;">
+  <div class="container"><br><br><br><br><br>
+            <div class="col-md-8 offset-md-2 shadow-lg p-3 mb-5 bg-white rounded" style="background: linear-gradient(455deg,#d4e6e9,rgb(226, 206, 226));">
                 <div class="panel-heading text-center">
-                    <h1 class="panel-title">Please add validation attributes</h1>
+                    <p style="font-size: x-large; font-style: italic; font-variant: normal; font-family: Georgia, 'Times New Roman', Times, serif;">Please add validation attributes</p>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="post" action="">
-                    
-                    <!--<a style="text-decoration: solid; color: #444444;" href="{{url_for('validate')}}">Take</a><br><br>
-                    <form action="/button" method="get">
-                        <input name="textfield" type="text" placeholder="Column name" class="form-control"/>
-                        <button type="button" id="connect" onclick="connectOnClick()"
-                    class="btn btn-outline-primary btn-block">Connect</button>
-
-                    
-                    </form>-->
-                    {% for i in range(3) %}
-                    <form role="form" method="post" action="">
-                    <div class="list_wrapper">  
-                        <div class="row">
-                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                <div class="form-group">  
-                                    <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                    <form role="form" method="post" action="{{ url_for('design') }}">
+                        <select name="columns" style="width:250px; position: relative; margin-left: 150px;border:azure: none;">
+                            <option value="">Select the Number of columns</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input style="border-radius: 25px;
+                            background: #323435;
+                            color: #d4e6e9;
+                            padding: 7px;
+                            width: 150px;
+                            height: 40px;" type="submit" value="Select Columns"><br><br>
+                            {% if value=="1" %}
+                            {% for i in range(1) %}
+                            <div class="list_wrapper">  
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">  
+                                            <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">
+                                            <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <div class="form-group"> 
+                                            <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                        </div>
+                                    </div> 
                                 </div>
+                            </div> 
+                           {% endfor %}
+                           {% endif %}        
+                            {% if value=="2" %}
+                            {% for i in range(2) %}
+                            <div class="list_wrapper">  
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">  
+                                            <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">
+                                            <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <div class="form-group"> 
+                                            <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div> 
+                        {% endfor %}
+                        {% endif %}
+                        {% if value=="3" %}
+                        {% for i in range(3) %}
+                        <div class="list_wrapper">  
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">  
+                                        <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                    </div>
+                                </div> 
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <div class="form-group"> 
+                                        <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                    </div>
+                                </div> 
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                <div class="form-group">
-                                    <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                        </div> 
+                    {% endfor %}
+                   {% endif %}
+                   {% if value=="4" %}
+                        {% for i in range(4) %}
+                        <div class="list_wrapper">  
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">  
+                                        <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                    </div>
                                 </div>
-                            </div> 
-                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                <div class="form-group"> 
-                                    <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                    </div>
+                                </div> 
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <div class="form-group"> 
+                                        <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div> 
+                    {% endfor %}
+                   {% endif %}
+                   {% if value=="5" %}
+                        {% for i in range(5) %}
+                        <div class="list_wrapper">  
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">  
+                                        <input name="n{{i}}" type="text" placeholder="Column name" class="form-control"/>                                      
+                                    </div>
                                 </div>
-                            </div> 
-                        </div>
-                    </div>               
-                   <hr>
-                   {% endfor %}
-                    <hr>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <input name="d{{i}}" type="text" placeholder="Data type" class="form-control"/>
+                                    </div>
+                                </div> 
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <div class="form-group"> 
+                                        <input name="l{{i}}" type="text" placeholder="Length" class="form-control"/>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div> 
+                    {% endfor %}
+                   {% endif %}                                           
+                    </div>       
                     <button class="btn btn-success" type="submit">Submit</button>
                     <button class="btn btn-success"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">Next</a></button>
-                    </form>
                 </form>
                         </div>
                     </div>
@@ -79,6 +151,9 @@
             </div>
         
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 <script>
     /*

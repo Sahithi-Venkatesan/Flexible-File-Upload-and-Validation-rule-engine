@@ -75,39 +75,79 @@ def retrieve():
         return redirect(url_for('login'))
     return render_template('design.html')
 '''
+
 @app.route('/design', methods=['post', 'get'])
-def design():
+def validate():
     if request.method == 'POST':
-        if request.form.get('columns') == '1':
-            a=request.form.get('columns')
-            values=2
-            print(a)
-            return render_template("design.html",value=a,values=values)
-        if request.form.get('columns') == '2':
-            a=request.form.get('columns')
-            values=2
-            print(a)
-            return render_template("design.html",value=a,values=values)
-        if request.form.get('columns') == '3':
-            a=request.form.get('columns')
-            values=3
-            print(a)
-            return render_template("design.html",value=a,values=values)
-        if request.form.get('columns') == '4':
-            a=request.form.get('columns')
-            values=4
-            print(a)
-            return render_template("design.html",value=a,values=values)
-        if request.form.get('columns') == '5':
-            a=request.form.get('columns')
-            values=5
-            print(a)
-            return render_template("design.html",value=a,values=values)
-        return redirect(url_for('design'))
-    elif request.method == 'GET':
-        # return render_template("index.html")
-        print("No Post Back Call")
-    return render_template("design.html") 
+        n0 = request.form.get('n0')  # access the data inside 
+        n1 = request.form.get('n1')
+        n2 = request.form.get('n2')
+        d0 = request.form.get('d0')  # access the data inside 
+        d1 = request.form.get('d1')
+        d2 = request.form.get('d2')
+        l0 = request.form.get('l0')  # access the data inside 
+        l1 = request.form.get('l1')
+        l2 = request.form.get('l2')
+
+        lwsv=LeadingWhitespaceValidation()
+        twsv=TrailingWhitespaceValidation()
+        irv=InRangeValidation(0, 120)
+        ilv=InListValidation(['Male', 'Female', 'Other'])
+        mpv=MatchesPatternValidation(r'\d[A-Z]')
+        dfv=DateFormatValidation( r'\d(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/([0-9]{4})')
+        #IsDtypeValidation()
+        c0=""
+        c1=""
+        c2=""
+        if n0=='Name' or n0=='First name' or n0=='Last name' or n0=='name':          
+            c0=[lwsv, twsv]
+        if n0=='Age':
+            c0=irv
+        if n0=='Sex':
+            c0=ilv
+        if n0=='ID':
+            c0=mpv
+        if n1=='Name' or n1=='First name' or n1=='Last name' or n1=='name':          
+            c1=[lwsv, twsv]
+        if n1=='Age':
+            c1=irv
+        if n1=='Sex':
+            c1=ilv
+        if n1=='ID':
+            c1=mpv
+        if n2=='Name'or n2=='First name' or n2=='Last name' or n2=='name':          
+            c2=[lwsv, twsv]
+        if n2=='Age':
+            c2=irv
+        if n2=='Sex':
+            c2=ilv
+        if n2=='ID':
+            c2=mpv
+        if n2=='DOB':
+            c2=dfv
+                
+        schema = Schema([
+        Column(n0, c0),
+        Column(n1, [c1]),
+        Column(n2, [c2])
+        ])
+
+        x = {n0,n1,n2}
+        print(x)
+        #test_data = pd.read_csv('data.csv',header=None,error_bad_lines=False)
+        #test_data = pd.read_csv('data.csv')
+        
+        test_data = pd.read_csv(StringIO('''Name,Age,Sex
+        Gerald,82,Male
+        Yuuwa,27,Female
+        Edyta,50,ma'''))
+        #test_data = pd.read_csv('data.csv') #--> rename to consider the file that is being uploaded
+        errors = schema.validate(test_data)
+
+        for error in errors:
+            print(error)
+        return redirect(url_for('validate'))
+    return render_template('design.html')
 
 if __name__ == "__main__":   
     app.run(debug=True)
