@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 #code to retrieve uploaded file
-'''
+
 app.secret_key = "secret key"
 
 Ext_check = set(['csv', 'txt'])
@@ -21,21 +21,22 @@ def file_check(filename):
 @app.route('/', methods=['POST'])
 def upload_file():
 	if request.method == 'POST':
-       
-		file = request.files['file']
-		if file.filename == '':
-			flash('Please select a file')
-			return render_template('inputfield.html')
-		if file and file_check(file.filename):
-			filename = secure_filename(file.filename)
-			file.save(file.filename)  # stores file in main folder
-            #file.save(os.path.join('Validation-fields', filename))  -->to store file in Validation-fields
-			flash('File successfully uploaded')
-			return render_template('inputfield.html')
-		else:
-			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
-			return render_template('inputfield.html')
-'''            
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
+    return
 
 @app.route('/', methods=['post', 'get'])
 
@@ -97,7 +98,7 @@ def login():
 
         #test_data = pd.read_csv('data.csv',header=None,error_bad_lines=False)
         #test_data = pd.read_csv(StringIO(Name))
-        test_data = pd.read_csv('data.csv')
+        test_data = pd.read_csv(file.filename)
         #test_data = pd.read_csv(file.filename)--> rename to consider the file that is being uploaded
 
         errors = schema.validate(test_data)
@@ -105,7 +106,7 @@ def login():
         for error in errors:
             print(error)
 
-    return render_template('design.html', message=message)
+    return render_template('inputfield.html', message=message)
 
     
 if __name__ == "__main__":   
