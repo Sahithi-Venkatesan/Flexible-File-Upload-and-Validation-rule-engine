@@ -3,6 +3,8 @@
 <head>
     <title>Dell-Hack2Hire</title>
     <link href="{{ url_for('static', filename='assets/img/DE.png') }}" rel="icon">
+    <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -42,7 +44,7 @@ li:hover,a:hover{
 }
 </style>    
 </head>
-<body style="background-image:url('static/assets/img/bg.jpg'); background-repeat: no-repeat; background-size: cover;"">
+<body style="background-image:url('static/assets/img/bg.jpg'); background-repeat: no-repeat; background-size: cover;">
   <div class="container"><br>
             <div class="col-md-8 offset-md-2 shadow-lg p-3 mb-5 bg-white rounded" style="background: linear-gradient(125deg,rgba(255, 255, 255, 0.781),#b7bcbd,rgb(185, 192, 192));">
                 <div class="panel-heading text-center">
@@ -99,7 +101,7 @@ li:hover,a:hover{
                                         </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
+                                        <input type="text" name="d{{i}}" data-toggle="tooltip" title="Choose from:&#010 Name&#010 Date&#010 Time&#010 Phn&#010 Age&#010 E-mail&#010 Gender&#010" data-placement="right" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                     </div> 
                                 </div>
                             </div> <br>
@@ -123,7 +125,7 @@ li:hover,a:hover{
                                         </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
+                                        <input type="text" name="d{{i}}" data-toggle="tooltip" title="Choose from:&#010 Name&#010 Date&#010 Time&#010 Phn&#010 Age&#010 E-mail&#010 Gender&#010" data-placement="right" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                     </div> 
                                 </div>
                             </div><br>
@@ -147,7 +149,7 @@ li:hover,a:hover{
                                     </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
+                                    <input type="text" name="d{{i}}" data-toggle="tooltip" title="Choose from:&#010 Name&#010 Date&#010 Time&#010 Phn&#010 Age&#010 E-mail&#010 Gender&#010" data-placement="right" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                 </div> 
                             </div>
                         </div><br> 
@@ -171,7 +173,7 @@ li:hover,a:hover{
                                     </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
+                                    <input type="text" name="d{{i}}" data-toggle="tooltip" title="Choose from:&#010 Name&#010 Date&#010 Time&#010 Phn&#010 Age&#010 E-mail&#010 Gender&#010" data-placement="right" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                 </div> 
                             </div>
                         </div><br>
@@ -195,7 +197,7 @@ li:hover,a:hover{
                                     </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
+                                    <input type="text" name="d{{i}}" data-toggle="tooltip" title="Choose from:&#010 Name&#010 Date&#010 Time&#010 Phn&#010 Age&#010 E-mail&#010 Gender&#010" data-placement="right" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                 </div> 
                             </div>
                         </div><br> 
@@ -225,6 +227,11 @@ li:hover,a:hover{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 <script>
  $(document).ready(function(){
@@ -240,6 +247,11 @@ li:hover,a:hover{
         }
         
     });
+   
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+    });
+   
     
     $(document).on('click','.option li',function(e){
         e.preventDefault();

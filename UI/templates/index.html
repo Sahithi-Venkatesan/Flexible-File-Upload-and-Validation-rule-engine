@@ -122,7 +122,8 @@
             <ul>
               <li class="active"><a href="index.html">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
+              <li><a href="#services">Features</a></li>
+              <li><a href="#faq">FAQs</a></li>
               <li><a href="#contact">Contact Us</a></li>
              <li><a href="{{ url_for('login_func') }}">Login</a></li>
             </ul>
@@ -140,7 +141,7 @@
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1> File Validations Made Easy</h1>
-          <h2>Experience  Now</h2>
+          <h2>Experience it now!</h2>
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
           <img src="{{ url_for('static', filename='assets/img/DE.png') }}" class="img-fluid animated" alt="">
@@ -169,10 +170,10 @@
              <h4>Our Model Motive </h4>
              <br /><br />
             <ul>
-              <li><i class="icofont-check-circled"></i> Uploading The File Received From The  Client  </li>
-              <li><i class="icofont-check-circled"></i>Validating The File With Respect To The The Given Data Type </li>
-               <li><i class="icofont-check-circled"></i>Uploading The validated File to Amazon s3 Bucket</li>
-               <li><i class="icofont-check-circled"></i>Retrieving The File From The Bucket</li>
+              <li><i class="icofont-check-circled"></i>Set up personalised design template</li>
+              <li><i class="icofont-check-circled"></i>Hassle free file validation</li>
+               <li><i class="icofont-check-circled"></i>Great insight on the error logs and flags</li>
+               <li><i class="icofont-check-circled"></i>Uploading the file to AWS S3 object storage</li>
             </ul>
           </div>
         </div>
@@ -184,7 +185,7 @@
 
         <div class="section-title">
           <br /><br />
-          <h2 style="text-align:center">Services</h2>
+          <h2 style="text-align:center">Features</h2>
           <br /><br />
         </div>
 
@@ -228,14 +229,124 @@
 
       </div>
     </section><!-- End Services Section -->
-     <br /><br /><br /><br />
-     <br /><br /><br /><br />
+
+    <section id="team" class="team section-bg">
+  <div class="container" data-aos="fade-up">
+
+
+    <div class="section-title">
+      <h2>Our Team</h2>
+    </div>
+
+
+    <div class="row">
+
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" style="max-width:20%;">
+        <div class="member">
+          <div class="member-img">
+            <img src="{​​​​​​​{​​​​​​​ url_for('static', filename='assets/img/team/t1.png') }​​​​​​​}​​​​​​​" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Sahithi Venkatesan</h4>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" style="max-width:20%;">
+        <div class="member">
+          <div class="member-img">
+            <img src="{​​​​​​​{​​​​​​​ url_for('static', filename='assets/img/team/t2.png') }​​​​​​​}​​​​​​​" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Pakala Shreya Reddy</h4>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300" style="max-width:20%;">
+        <div class="member">
+          <div class="member-img">
+            <img src="{​​​​​​​{​​​​​​​ url_for('static', filename='assets/img/team/t3.png') }​​​​​​​}​​​​​​​" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Challagonda Mrudula</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" style="max-width:20%;">
+        <div class="member">
+          <div class="member-img">
+            <img src="{​​​​​​​{​​​​​​​ url_for('static', filename='assets/img/team/t4.png') }​​​​​​​}​​​​​​​" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Gadadhar Teegala</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500" style="max-width:20%;">
+        <div class="member">
+          <div class="member-img">
+            <img src="{​​​​​​​{​​​​​​​ url_for('static', filename='assets/img/team/t5.png') }​​​​​​​}​​​​​​​" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>Koushik</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+
+        <div class="section-title">
+          <h2 style="color:#124265;">Frequently Asked Questions</h2>
+        </div>
+
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Maximum Limit of the rows in the csv file? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                <p>
+                  There is no limitation on the rows. And the number of columns can be customized according to your requirement.
+                </p>
+              </div>
+            </li>
+
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed"> Can the error logs be retrieved ?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse show" data-parent=".faq-list">
+                <p>
+               The error log with row wise information can be viewed and retrieved.
+                </p>
+              </div>
+            </li>
+
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Can each column be validated upon different attributes?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse show" data-parent=".faq-list">
+                <p>
+                 The validation templates can be customised according to the users requirement.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ======= Frequently Asked Questions Section ======= -->
 
     <!-- ======= Contact Section ======= -->
-    <br /><br /><br /><br />
-    <br /><br /><br /><br />
     <section id="contact" class="contact section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -248,7 +359,7 @@
             <div class="info-box mb-4">
               <i class="bx bx-map"></i>
               <h3>Our Address</h3>
-              <p>Mahindra university Bahadurpally Hyderabad Telangana</p>
+              <p>Mahindra University, Hyderabad</p>
             </div>
           </div>
 
@@ -256,7 +367,7 @@
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>mahindrauniversity@gmail.com</p>
+              <p>alpha@mahindrauniversity.edu.in</p>
             </div>
           </div>
 

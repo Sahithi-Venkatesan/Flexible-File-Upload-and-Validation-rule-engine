@@ -16,7 +16,22 @@
 <div class="card" style="width: 30rem;">
     <div class="card example-1 scrollbar-ripe-malinka">
       <div class="card-body" style="background-color: #1b1a1aec;">
-        <h4 style="color: crimson; font-family: 'Quicksand', sans-serif;"id=><strong>Have a look at your error logs and come back again!!!</strong></h4>
+        <h4 style="color: crimson; font-family: 'Quicksand', sans-serif;"><strong>Check the error log of your file</strong></h4>
+        <div id = "buttondiv">
+          <input type="file" id = "inputfile"/>
+          <input type="button" id = "viewfile" value="Submit"/>
+          <br /><br />
+        </div>
+        <div class= "container" id ="container">
+          <br />
+          <table class ="gridtable" id="tableMain">
+            <thead >
+              <tr class="tableheader" style="#D6EAF8;">
+                <th id="var">Errors</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -26,7 +41,7 @@
   font-family: 'Quicksand', sans-serif;font-size: xx-large; font-weight: 700;">Upload your files to aws bucket in one go!!!</p><hr>
   <p style="margin-left: 550px;">
       <input type="file" name="file" accept=".csv,.txt" autocomplete="off" required>
-  </p>      
+  </p>
   <p style="margin-left: 800px; margin-top:-50px; position: fixed;">
     <input type="submit" value="Upload" class="btn btn-dark">
   </p>
@@ -35,6 +50,22 @@
 <script src="//jquerycsvtotable.googlecode.com/files/jquery.csvToTable.js"></script>
 
 <script>
+$( document ).ready(function() {
+  $('#viewfile').click(function (){
+    var rdr = new FileReader();
+    rdr.onload = function (e) {
+      //rows into array
+       document.getElementById('var').style.visibility='visible';
+       var therows = e.target.result.split("\n");
+       for(var row =1; row< therows.length; row++){
+         var newrow="";
+            newrow="<tr><td>" + therows[row] + "</td><tr>";
+        $('#tableMain').append(newrow);
+       }
+    }
+    rdr.readAsText($("#inputfile")[0].files[0]);
+  });
+});
 $(function() {
   $('#CSVTable').CSVToTable('your_csv.csv');
 });
@@ -42,6 +73,35 @@ $(function() {
 </body>
 </html>
 <style>
+#buttondiv{
+  width:100%;
+  text-align: center;
+}
+table{
+  margin: 0 auto;
+}
+table.gridtable th {
+  border-width: 1px;
+  padding: 8px;
+  width:160px;
+  text-align: center;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #D6EAF8;
+  border-collapse: collapse;
+  color: #0f0f0f;
+}
+#var
+{
+  visibility: hidden;
+}
+table.gridtable td{
+  border-width: 1px;
+  padding: 8px;
+  border-style:solid;
+  border-color: #666666;
+  color: #D6EAF8;
+}
 .scrollbar-ripe-malinka::-webkit-scrollbar-track {
 -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 background-color: #F5F5F5;

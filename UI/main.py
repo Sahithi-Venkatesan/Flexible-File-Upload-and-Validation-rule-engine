@@ -1,7 +1,7 @@
 '''
 from flask import Flask, render_template, request, flash
 import json
-app = Flask(_name_)
+app = Flask(name)
 @app.route('/')  
 def home():
     return render_template("index.html")
@@ -11,7 +11,7 @@ def login_func():
         return redirect(url_for('index'))
     return render_template('login_1.html')
     
-if _name_ == "_main_":   
+if name == "main":   
     app.run(debug=True)
 '''
 from flask import Flask, render_template, request, flash, redirect, url_for
@@ -24,7 +24,7 @@ import os
 from werkzeug.utils import secure_filename
 import os
 import boto3
-import config as keys
+
  
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -123,12 +123,9 @@ def design():
             cnum4=""
 
         if cnum4=='4':
-            test_data = pd.read_csv(StringIO('''Age,Name,Phn,Date,Time
-            32,    Sahithi,123,1/13/2000,25:00
-            300,Shreya,6124352617,22/2/2000,3
-            24,Bhavana,88,3,f'''))
+            test_data = pd.read_csv('data-5.csv')
             if d0=='Age':
-                c0=InRangeValidation(0, 90)
+                c0=InRangeValidation(0, 110)
             if d0=='Name':
                 c0=LeadingWhitespaceValidation()
             if d0=='Gender':
@@ -138,11 +135,11 @@ def design():
             if d0=='E-mail':
                 c0=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d0=='Date':
-                c0=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c0=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d0=='Time':
-                c0=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c0=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d1=='Age':
-                c1=InRangeValidation(0, 90)
+                c1=InRangeValidation(0, 110)
             if d1=='Name':
                 c1=LeadingWhitespaceValidation()
             if d1=='Gender':
@@ -152,11 +149,11 @@ def design():
             if d1=='E-mail':
                 c1=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d1=='Date':
-                c1=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c1=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d1=='Time':
-                c1=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c1=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d2=='Age':
-                c2=InRangeValidation(0, 90)
+                c2=InRangeValidation(0, 110)
             if d2=='Name':
                 c2=LeadingWhitespaceValidation()
             if d2=='Gender':
@@ -166,11 +163,11 @@ def design():
             if d2=='E-mail':
                 c2=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d2=='Date':
-                c2=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c2=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d2=='Time':
-                c2=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c2=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d3=='Age':
-                c3=InRangeValidation(0, 90)
+                c3=InRangeValidation(0, 110)
             if d3=='Name':
                 c3=LeadingWhitespaceValidation()
             if d3=='Gender':
@@ -180,11 +177,11 @@ def design():
             if d3=='E-mail':
                 c3=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d3=='Date':
-                c3=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c3=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d3=='Time':
-                c3=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c3=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d4=='Age':
-                c4=InRangeValidation(0, 90)
+                c4=InRangeValidation(0, 110)
             if d4=='Name':
                 c4=LeadingWhitespaceValidation()
             if d4=='Gender':
@@ -194,9 +191,9 @@ def design():
             if d4=='E-mail':
                 c4=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d4=='Date':
-                c4=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c4=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d4=='Time':
-                c4=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c4=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             list=[]
             for col in test_data.columns:
                 list.append(col)
@@ -204,17 +201,14 @@ def design():
             errors = schema.validate(test_data)
             for error in errors:
                 print(error)
-            pd.DataFrame({'col':errors}).to_csv('static/errors.csv')
+            pd.DataFrame({'col':errors}).to_csv('errors.csv')
             return redirect(url_for('design'))
 
 
         if cnum3=='3':
-            test_data = pd.read_csv(StringIO('''Age,Name,Phn
-            32,    Sahithi,123
-            300,Shreya,6124352617
-            24,Bhavana,88'''))
+            test_data = pd.read_csv('data-4.csv')
             if d0=='Age':
-                c0=InRangeValidation(0, 90)
+                c0=InRangeValidation(0, 110)
             if d0=='Name':
                 c0=LeadingWhitespaceValidation()
             if d0=='Gender':
@@ -224,11 +218,11 @@ def design():
             if d0=='E-mail':
                 c0=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d0=='Date':
-                c0=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c0=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d0=='Time':
-                c0=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c0=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d1=='Age':
-                c1=InRangeValidation(0, 90)
+                c1=InRangeValidation(0, 110)
             if d1=='Name':
                 c1=LeadingWhitespaceValidation()
             if d1=='Gender':
@@ -238,11 +232,11 @@ def design():
             if d1=='E-mail':
                 c1=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d1=='Date':
-                c1=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c1=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d1=='Time':
-                c1=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c1=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d2=='Age':
-                c2=InRangeValidation(0, 90)
+                c2=InRangeValidation(0, 110)
             if d2=='Name':
                 c2=LeadingWhitespaceValidation()
             if d2=='Gender':
@@ -252,11 +246,11 @@ def design():
             if d2=='E-mail':
                 c2=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d2=='Date':
-                c2=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c2=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d2=='Time':
-                c2=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c2=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d3=='Age':
-                c3=InRangeValidation(0, 90)
+                c3=InRangeValidation(0, 110)
             if d3=='Name':
                 c3=LeadingWhitespaceValidation()
             if d3=='Gender':
@@ -266,9 +260,9 @@ def design():
             if d3=='E-mail':
                 c3=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d3=='Date':
-                c3=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c3=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d3=='Time':
-                c3=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c3=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             list=[]
             for col in test_data.columns:
                 list.append(col)
@@ -276,17 +270,14 @@ def design():
             errors = schema.validate(test_data)
             for error in errors:
                 print(error)
-            pd.DataFrame({'col':errors}).to_csv('static/errors.csv')
+            pd.DataFrame({'col':errors}).to_csv('errors.csv')
             return redirect(url_for('design'))
 
        
         if cnum2=='2':
-            test_data = pd.read_csv(StringIO('''Age,Name,Phn
-            32,    Sahithi,123
-            300,Shreya,6124352617
-            24,Bhavana,88'''))
+            test_data = pd.read_csv('data-3.csv')
             if d0=='Age':
-                c0=InRangeValidation(0, 90)
+                c0=InRangeValidation(0, 110)
             if d0=='Name':
                 c0=LeadingWhitespaceValidation()
             if d0=='Gender':
@@ -296,11 +287,11 @@ def design():
             if d0=='E-mail':
                 c0=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d0=='Date':
-                c0=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c0=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d0=='Time':
-                c0=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c0=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d1=='Age':
-                c1=InRangeValidation(0, 90)
+                c1=InRangeValidation(0, 110)
             if d1=='Name':
                 c1=LeadingWhitespaceValidation()
             if d1=='Gender':
@@ -310,11 +301,11 @@ def design():
             if d1=='E-mail':
                 c1=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d1=='Date':
-                c1=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c1=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d1=='Time':
-                c1=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c1=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d2=='Age':
-                c2=InRangeValidation(0, 90)
+                c2=InRangeValidation(0, 110)
             if d2=='Name':
                 c2=LeadingWhitespaceValidation()
             if d2=='Gender':
@@ -324,9 +315,9 @@ def design():
             if d2=='E-mail':
                 c4=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d2=='Date':
-                c2=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c2=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d2=='Time':
-                c2=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c2=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             list=[]
             for col in test_data.columns:
                 list.append(col)
@@ -334,15 +325,12 @@ def design():
             errors = schema.validate(test_data)
             for error in errors:
                 print(error)
-            pd.DataFrame({'col':errors}).to_csv('static/errors.csv')
+            pd.DataFrame({'col':errors}).to_csv('errors.csv')
             return redirect(url_for('design'))
         elif cnum1=='1':
-            test_data = pd.read_csv(StringIO('''Age,Name
-            32,    Sahithi
-            300,Shreya
-            24,Bhavana'''))
+            test_data = pd.read_csv('data-2.csv')
             if d0=='Age':
-                c0=InRangeValidation(0, 30)
+                c0=InRangeValidation(0, 110)
             if d0=='Name':
                 c0=LeadingWhitespaceValidation()
             if d0=='Gender':
@@ -352,11 +340,11 @@ def design():
             if d0=='E-mail':
                 c0=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d0=='Date':
-                c0=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c0=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d0=='Time':
-                c0=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c0=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             if d1=='Age':
-                c1=InRangeValidation(0, 30)
+                c1=InRangeValidation(0, 110)
             if d1=='Name':
                 c1=LeadingWhitespaceValidation()
             if d1=='Gender':
@@ -366,9 +354,9 @@ def design():
             if d1=='E-mail':
                 c1=MatchesPatternValidation(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
             if d1=='Date':
-                c1=MatchesPatternValidation(r'(^([1-31]|[0-1][1-9])+(/|-)([0][1-9]|[1-12])+(/|-)[\d]{4})')
+                c1=MatchesPatternValidation(r"[\d]{1,2}/[\d]{1,2}/[\d]{4}")
             if d1=='Time':
-                c1=MatchesPatternValidation(r'(^([2][0-4]|[0-1][0-9])+:[0-5][0-9])')
+                c1=MatchesPatternValidation(r"[\d]{1,2}:[\d]{2}")
             list=[]
             for col in test_data.columns:
                 list.append(col)
@@ -376,15 +364,12 @@ def design():
             errors = schema.validate(test_data)
             for error in errors:
                 print(error)
-            pd.DataFrame({'col':errors}).to_csv('static/errors.csv')
+            pd.DataFrame({'col':errors}).to_csv('errors.csv')
             return redirect(url_for('design'))
         else:
-            test_data = pd.read_csv(StringIO('''Time
-            24/12/1200
-            03:00
-            24:60'''))
+            test_data = pd.read_csv('data-1.csv')
             if d0=='Age':
-                c0=InRangeValidation(0, 30)
+                c0=InRangeValidation(0, 110)
             if d0=='Name':
                 c0=LeadingWhitespaceValidation()
             if d0=='Gender':
@@ -404,7 +389,7 @@ def design():
             errors = schema.validate(test_data)
             for error in errors:
                 print(error)
-            pd.DataFrame({'col':errors}).to_csv('static/errors.csv')
+            pd.DataFrame({'col':errors}).to_csv('errors.csv')
             return redirect(url_for('design'))
         return redirect(url_for('design'))
     elif request.method == 'GET':
