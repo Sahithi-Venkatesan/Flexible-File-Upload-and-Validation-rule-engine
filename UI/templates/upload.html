@@ -1,52 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dell-Hack2Hire</title>
-    <link rel = "icon" href ="{{ url_for('static', filename='stylesheets/logo-dell.png') }}"  type = "image/x-icon">
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',  filename='assets/css/inputfield.css') }}" />
-  
-  <!--sample file upload, can update later-->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Quicksand&display=swap" rel="stylesheet">
 
 </head>
-<body>
-    <div class="navbar">
-        <h2> </h2>
-    </div>
-    <hr>
-    <div class="container">
-    <h2>File Upload</h2>
-    <div class="card" style="width:400px">
-      <div class="card-body ">
-          <!--
-        <form action="/upload" method="post" enctype="multipart/form-data">
-        <p class="card-text">Choose a file to upload</p>
-          <input type="file" name="file" value="file" accept="">
-          <hr>
-        <input type="submit" name="upload" value="Upload" class="btn btn-success">
-        </form>
-    -->
-        <form method="post" action="/" enctype="multipart/form-data">
-            <p class="card-text">Choose a file to upload</p>
-            <p>
-                <input type="file" name="file" autocomplete="off" required>
-            </p>      
-            <p>
-                <input type="submit" value="Submit" class="btn btn-success">
-            </p>
-        </form>
+<body style="background-image:url('static/assets/img/bg.jpg'); background-repeat: no-repeat; background-size: cover;">
+<div class="row">
+<div class="card" style="width: 30rem;">
+    <div class="card example-1 scrollbar-ripe-malinka">
+      <div class="card-body" style="background-color: #1b1a1aec;">
+        <h4 style="color: crimson; font-family: 'Quicksand', sans-serif;"id=><strong>Have a look at your error logs and come back again!!!</strong></h4>
       </div>
     </div>
-    <br>
   </div>
-  <!--sample file upload ends-->
+</div>
+<form method="post" action="/upload_aws" enctype="multipart/form-data">
+  <p class="card-text" style="margin-top: 450px; margin-left: 450px;font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Quicksand', sans-serif;font-size: xx-large; font-weight: 700;">Upload your files to aws bucket in one go!!!</p><hr>
+  <p style="margin-left: 550px;">
+      <input type="file" name="file" accept=".csv,.txt" autocomplete="off" required>
+  </p>      
+  <p style="margin-left: 800px; margin-top:-50px; position: fixed;">
+    <input type="submit" value="Upload" class="btn btn-dark">
+  </p>
+</form>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//jquerycsvtotable.googlecode.com/files/jquery.csvToTable.js"></script>
+
+<script>
+$(function() {
+  $('#CSVTable').CSVToTable('your_csv.csv');
+});
+</script>
+</body>
+</html>
+<style>
+.scrollbar-ripe-malinka::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-ripe-malinka::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-ripe-malinka::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-image: -webkit-linear-gradient(330deg, #2a4147 0%, #64c4f0 100%);
+background-image: linear-gradient(120deg, #3c6066 0%, #73caf3 100%); }
+
+.bordered-deep-purple::-webkit-scrollbar-track {
+-webkit-box-shadow: none;
+border: 1px solid #512da8; }
+
+.bordered-deep-purple::-webkit-scrollbar-thumb {
+-webkit-box-shadow: none; }
+
+.bordered-cyan::-webkit-scrollbar-track {
+-webkit-box-shadow: none;
+border: 1px solid #00bcd4; }
+
+.bordered-cyan::-webkit-scrollbar-thumb {
+-webkit-box-shadow: none; }
+
+.square::-webkit-scrollbar-track {
+border-radius: 0 !important; }
+
+.square::-webkit-scrollbar-thumb {
+border-radius: 0 !important; }
+
+.thin::-webkit-scrollbar {
+width: 6px; }
+
+.example-1 {
+position: fixed;
+margin-left:200px ;
+margin-top: 20px;
+overflow-y: scroll;
+height: 400px;
+width: 1200px; }
+</style>

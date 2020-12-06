@@ -2,18 +2,71 @@
 <html>
 <head>
     <title>Dell-Hack2Hire</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<style>
+    .dropdown-option{
+    padding:10px;
+    padding-right:0px;
+    border:1px solid #ccc;
+    width:190px;
+    cursor:pointer;
+}
+.dropdown-option span{
+     float:right;
+    margin-right:10px;
+}
+.options{
+    display:none;
+    list-style:none;
+    margin-top:-1px;
+    border:1px solid #ccc;
+    border-bottom:0px;
+    width:200px;
+   padding:0px;
+}
+.options li{
+    border-bottom:1px solid #ccc;
+    cursor:pointer;    
+    padding:10px;
+}
+li a{
+    text-decoration:none;
+    color:#000;
+}
+li:hover,a:hover{
+    background:#bbb;
+}
+</style>    
 </head>
-<body style="background: linear-gradient(75deg,#ecc7c7,rgb(247, 146, 146),#ffe079,#99eeff,rgb(233, 172, 255),#48cfe7); background-size: 300% 300%;animation: gradient 5s ease infinite;">
-  <div class="container"><br><br><br><br><br>
-            <div class="col-md-8 offset-md-2 shadow-lg p-3 mb-5 bg-white rounded" style="background: linear-gradient(455deg,#d4e6e9,rgb(226, 206, 226));">
+<body style="background-image:url('static/assets/img/bg.jpg'); background-repeat: no-repeat; background-size: cover;"">
+  <div class="container"><br>
+            <div class="col-md-8 offset-md-2 shadow-lg p-3 mb-5 bg-white rounded" style="background: linear-gradient(125deg,rgba(255, 255, 255, 0.781),#b7bcbd,rgb(185, 192, 192));">
                 <div class="panel-heading text-center">
-                    <p style="font-size: x-large; font-style: italic; font-variant: normal; font-family: Georgia, 'Times New Roman', Times, serif;">Please add validation attributes</p>
+                    <p style="font-size: x-large; font-variant: normal; font-family: 'Anton', sans-serif;">Please add validation attributes</p>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="{{ url_for('design') }}">
-                        <select name="columns" style="width:250px; position: relative; margin-left: 150px;border:azure: none:">
-                            <option value="">Select the Number of columns</option>
+                        <select name="columns" style="
+                        font-size: 16px;
+                        font-family: sans-serif;
+                        font-weight: 700;
+                        color: #444;
+                        line-height: 1.3;
+                        padding: .6em 1.4em .5em .8em;
+                        width: 200px;
+                        box-sizing: border-box;
+                        margin: 0;
+                        border: 1px solid #aaa;
+                        box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+                        border-radius: .5em;
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        background-color: #fff;position: relative; margin-left: 150px">
+                            <option value="">Number of columns&#x25BC;</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -25,23 +78,17 @@
                             color: #d4e6e9;
                             padding: 7px;
                             width: 150px;
-                            height: 40px;" type="submit" value="Select Columns"><br><br>
+                            height: 40px; font-size: 16px;" type="submit" value="Select"><br><br>
                             {% if value=="1" %}
                             {% for i in range(1) %}
                             <div class="list_wrapper">  
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                            <option value="">Select col number</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
+                                        <input type="number" name="cnum{{i}}" placeholder="Column number(range 0-4)" min="0" max="4" style="width: 200px; font-size: 14px;">
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <select name="datatype" style="width:200px; position: relative; margin-left: 10px;border:azure:none:;border: 1px solid #aaa;
+                                        box-shadow: 0 1px 0 1px rgba(0,0,0,.04);">
                                             <option value="">Select data type</option>
                                             <option value="String">String</option>
                                             <option value="Numeric">Numeric</option>
@@ -51,17 +98,10 @@
                                         </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                            <option value="">Select template</option>
-                                            <option value="Age">Age</option>
-                                            <option value="Gender">Gender</option>
-                                            <option value="Phone number">Phone number</option>
-                                            <option value="E-mail">E-mail</option>
-                                            <option value="Name">Name</option>
-                                        </select>
+                                        <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                     </div> 
                                 </div>
-                            </div> 
+                            </div> <br>
                            {% endfor %}
                            {% endif %}        
                             {% if value=="2" %}
@@ -69,17 +109,10 @@
                             <div class="list_wrapper">  
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                            <option value="">Select col number</option>
-                                            <option value="n{{i}}">1</option>
-                                            <option value="n{{i}}">2</option>
-                                            <option value="n{{i}}">3</option>
-                                            <option value="n{{i}}">4</option>
-                                            <option value="n{{i}}">5</option>
-                                        </select>
+                                        <input type="number" name="cnum{{i}}" placeholder="Column number(range 0-4)" min="0" max="4" style="width: 200px; font-size: 14px;">
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4">
-                                        <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                        <select name="datatype" style="width:200px; position: relative; margin-left: 10px;border:azure: none:">
                                             <option value="">Select data type</option>
                                             <option value="d{{i}}">String</option>
                                             <option value="d{{i}}">Numeric</option>
@@ -89,17 +122,10 @@
                                         </select>
                                     </div> 
                                     <div class="col-xs-3 col-sm-3 col-md-3">
-                                        <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                            <option value="">Select template</option>
-                                            <option value="t{{i}}">Age</option>
-                                            <option value="t{{i}}">Gender</option>
-                                            <option value="t{{i}}">Phone number</option>
-                                            <option value="t{{i}}">E-mail</option>
-                                            <option value="t{{i}}">Name</option>
-                                        </select>
+                                        <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                     </div> 
                                 </div>
-                            </div> 
+                            </div><br>
                         {% endfor %}
                         {% endif %}
                         {% if value=="3" %}
@@ -107,17 +133,10 @@
                         <div class="list_wrapper">  
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                        <option value="">Select col number</option>
-                                        <option value="n{{i}}">1</option>
-                                        <option value="n{{i}}">2</option>
-                                        <option value="n{{i}}">3</option>
-                                        <option value="n{{i}}">4</option>
-                                        <option value="n{{i}}">5</option>
-                                    </select>
+                                    <input type="number" name="cnum{{i}}" placeholder="Column number(range 0-4)" min="0" max="4" style="width: 200px; font-size: 14px;">
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                    <select name="datatype" style="width:200px; position: relative; margin-left: 10px;border:azure: none:">
                                         <option value="">Select data type</option>
                                         <option value="d{{i}}">String</option>
                                         <option value="d{{i}}">Numeric</option>
@@ -127,17 +146,10 @@
                                     </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                        <option value="">Select template</option>
-                                        <option value="t{{i}}">Age</option>
-                                        <option value="t{{i}}">Gender</option>
-                                        <option value="t{{i}}">Phone number</option>
-                                        <option value="t{{i}}">E-mail</option>
-                                        <option value="t{{i}}">Name</option>
-                                    </select>
+                                    <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                 </div> 
                             </div>
-                        </div> 
+                        </div><br> 
                     {% endfor %}
                    {% endif %}
                    {% if value=="4" %}
@@ -145,17 +157,10 @@
                         <div class="list_wrapper">  
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                        <option value="">Select col number</option>
-                                        <option value="n{{i}}">1</option>
-                                        <option value="n{{i}}">2</option>
-                                        <option value="n{{i}}">3</option>
-                                        <option value="n{{i}}">4</option>
-                                        <option value="n{{i}}">5</option>
-                                    </select>
+                                    <input type="number" name="cnum{{i}}" placeholder="Column number(range 0-4)" min="0" max="4" style="width: 200px; font-size: 14px;">
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                    <select name="datatype" style="width:200px; position: relative; margin-left: 10px;border:azure: none:">
                                         <option value="">Select data type</option>
                                         <option value="d{{i}}">String</option>
                                         <option value="d{{i}}">Numeric</option>
@@ -165,17 +170,10 @@
                                     </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                        <option value="">Select template</option>
-                                        <option value="t{{i}}">Age</option>
-                                        <option value="t{{i}}">Gender</option>
-                                        <option value="t{{i}}">Phone number</option>
-                                        <option value="t{{i}}">E-mail</option>
-                                        <option value="t{{i}}">Name</option>
-                                    </select>
+                                    <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                 </div> 
                             </div>
-                        </div> 
+                        </div><br>
                     {% endfor %}
                    {% endif %}
                    {% if value=="5" %}
@@ -183,17 +181,10 @@
                         <div class="list_wrapper">  
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <select name="colnum" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                        <option value="">Select col number</option>
-                                        <option value="n{{i}}">1</option>
-                                        <option value="n{{i}}">2</option>
-                                        <option value="n{{i}}">3</option>
-                                        <option value="n{{i}}">4</option>
-                                        <option value="n{{i}}">5</option>
-                                    </select>
+                                    <input type="number" name="cnum{{i}}" placeholder="Column number(range 0-4)" min="0" max="4" style="width: 200px; font-size: 14px;">
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <select name="datatype" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
+                                    <select name="datatype" style="width:200px; position: relative; margin-left: 10px;border:azure: none:">
                                         <option value="">Select data type</option>
                                         <option value="d{{i}}">String</option>
                                         <option value="d{{i}}">Numeric</option>
@@ -203,49 +194,60 @@
                                     </select>
                                 </div> 
                                 <div class="col-xs-3 col-sm-3 col-md-3">
-                                    <select name="template" style="width:200px; position: relative; margin-left: 20px;border:azure: none:">
-                                        <option value="">Select template</option>
-                                        <option value="t{{i}}">Age</option>
-                                        <option value="t{{i}}">Gender</option>
-                                        <option value="t{{i}}">Phone number</option>
-                                        <option value="t{{i}}">E-mail</option>
-                                        <option value="t{{i}}">Name</option>
-                                    </select>
+                                    <input type="text" name="d{{i}}" placeholder="Template" min="0" style="width: 200px; font-size: 14px;">
                                 </div> 
                             </div>
-                        </div> 
+                        </div><br> 
                     {% endfor %}
                    {% endif %}                                           
-                    </div>       
+                    </div>     
                     <input style="border-radius: 25px;
                             background: #323435;
                             color: #d4e6e9;
                             padding: 7px;
                             width: 150px;
-                            height: 40px;" type="submit" value="Submit">
-                    <button class="btn btn-success"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">Next</a></button>
+                            height: 40px; position: fixed; margin-top:200px; margin-left: 150px;" type="submit" value="Submit">
+                    <button class="btn btn-info" style="position: fixed; margin-top:205px;margin-left: 380px;"><a style="text-decoration: none; color: aliceblue;" href="{{url_for('upload_func')}}">See the error log</a></button>
                 </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        
+            </div><hr>
+            <form method="post" action="/" enctype="multipart/form-data">
+                <p class="card-text" style="margin-left: 600px; margin-top: 10px;font-family: 'Noto Sans KR', sans-serif;
+                font-family: 'Quicksand', sans-serif;font-size: xx-large; font-weight: 700; font-size: xx-large;">Choose a file to upload</p>
+                <p style="margin-left: 650px;">
+                    <input type="file" name="file" accept=".csv,.txt" autocomplete="off" required>
+                </p>      
+            </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 </body>
 <script>
-    /*
-connectOnClick = () => {
-        $.post('/connect');
-    }
-    */
-    function myFunc() {
-            alert("Your message has been sent!");
-            document.getElementById("email").value;
-            document.getElementById("text").value;
-                    }
+ $(document).ready(function(){
+    var click = true;
+    $(document).on('click','div.dropdown',function(e){
+        e.preventDefault();
+        if(click){
+            $('.option').stop().slideDown(300);
+            click = false;
+        }else{
+            $('.option').stop().slideUp(300);
+            click = true;
+        }
+        
+    });
+    
+    $(document).on('click','.option li',function(e){
+        e.preventDefault();
+        var option_value = $(this).find('a').text();
+        $('.dropdown b').text(option_value);
+        $('.option').slideUp(300);
+        click = true;
+    });
+});
 </script>
 
 </html>
